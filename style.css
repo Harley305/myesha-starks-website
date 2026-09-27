@@ -1,0 +1,358 @@
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1a1a1a;
+  padding: 1rem 2rem;
+  color: white;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #3AAFA9;
+}
+
+.hero {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  background-image: linear-gradient(rgba(0, 0, 0,0.5), rgba(0, 0, 0, 0.5)), url("https://i.imgur.com/UIW0JFE.jpeg");
+  background-size: cover;
+  background-position: center 20%;
+  color: white;
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: space-between;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-links a {
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero {
+    min-height: 80vh;
+  }
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 500px;
+}
+
+.services {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.services h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.about-intro {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto 3rem;
+  flex-wrap: wrap;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 250px;
+  text-align: left;
+}
+
+.about-text p + p {
+  margin-top: 1rem;
+}
+
+.about-text ul {
+  margin: 0.75rem 0 0 1.25rem;
+  line-height: 1.6;
+}
+
+.about-photo {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.gallery {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.gallery h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.filter-btn {
+  background: none;
+  border: 2px solid #3AAFA9;
+  color: #1a1a1a;
+  padding: 0.5rem 1.25rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background-color: #3AAFA9;
+  color: white;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.gallery-item {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.03);
+}
+
+.gallery-item.hidden {
+  display: none;
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox-img {
+  max-width: 90vw;
+  max-height: 80vh;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.lightbox-caption {
+  color: white;
+  margin-top: 1rem;
+  font-size: 1rem;
+  max-width: 80vw;
+  text-align: center;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  color: white;
+  font-size: 2.5rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.lightbox-close:hover {
+  color: #3AAFA9;
+}
+
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  user-select: none;
+}
+
+.lightbox-prev {
+  left: 1rem; 
+}
+
+.lightbox-next {
+  right: 1rem;
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  color: #3AAFA9;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.card {
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  padding: 2rem;
+  max-width: 300px;
+  text-align: left;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.card:hover {
+  border-color: #3AAFA9;
+}
+
+.card h3 {
+  margin-bottom: 0.75rem;
+  color: #1a1a1a;
+}
+
+.card:nth-child(1) {
+  position: relative;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("https://i.imgur.com/KtWz9TJ.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.card:nth-child(1) h3,
+.card:nth-child(1) p {
+  color: white;
+}
+
+.card:nth-child(2) {
+  position: relative;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("https://i.imgur.com/sDeYnKh.png");
+  background-size: cover;
+  background-position: top center;
+}
+
+.card:nth-child(2) h3,
+.card:nth-child(2) p {
+  color: white;
+}
+
+.card:nth-child(3) {
+  position: relative;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("https://i.imgur.com/juVkNSk.png");
+  background-size: cover;
+  background-position: top center;
+}
+
+.card:nth-child(3) h3,
+.card:nth-child(3) p {
+  color: white;
+}
+
+footer {
+  background-color: #1a1a1a;
+  color: white;
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+footer h2{
+  margin-bottom: 1rem;
+}
+
+footer a {
+  color: #3AAFA9;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+.footer-links {
+  margin-top: 0.75rem;
+}
+
+.copyright {
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  color: #aaa;
+}
