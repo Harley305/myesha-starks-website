@@ -2,7 +2,9 @@
 
 Portfolio website for Myesha Starks, an Emmy-nominated Department Head and Key Hairstylist with over two decades of film and television credits.
 
-**Live site:** [myeshastarks.com](https://myeshastarks.com)
+**Pending:** [myeshastarks.com](https://myeshastarks.com)
+
+   **Live site:** [harley305.github.io/myesha-starks-website](https://harley305.github.io/myesha-starks-website/)
 
 ## Features
 
